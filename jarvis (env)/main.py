@@ -7,7 +7,8 @@ import pyautogui
 import time
 
 r= sr.Recognizer()
-apikey="a02d9f56e85747fdb60aa8b28ffd6258"
+# Enter your API key for NewsAPI
+apikey="" # Generate your own API key from https://newsapi.org
 def say(text):
     engine=pyttsx3.init()
     engine.say(text)
