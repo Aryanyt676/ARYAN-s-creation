@@ -6,6 +6,8 @@ import requests
 import pyautogui
 import time
 import tkinter as tk
+import random
+import subprocess
 
 r= sr.Recognizer()
 # Enter your API key for NewsAPI
@@ -15,12 +17,6 @@ def say(text):
     engine.say(text)
     engine.runAndWait()
 
-def mike_GUI():
-    while True:
-        ww=tk.Tk()
-        ww.title("jarvis")
-        ww.
-        
 
 def processcommand(command):
     print(f"request went:{command}")
@@ -41,6 +37,17 @@ def processcommand(command):
     
     elif "open git" in command.lower():
         wb.open("https://github.com/")
+
+    elif "say quote" in command.lower():
+        with open ("quote.txt",encoding="utf-8") as r:
+            lines=r.readlines()
+            rn_line=random.randint(1,len(lines)-1)
+            quote=lines[rn_line]
+            print(quote)
+            say(quote)   
+    elif "send quote" in command.lower():
+         subprocess.run(["python","telmain.py"])
+    
     #play song:-
     elif command.lower().startswith("play"):
         songsplit=command.split()[1:]
