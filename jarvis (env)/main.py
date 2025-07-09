@@ -5,6 +5,7 @@ import music_lib
 import requests
 import pyautogui
 import time
+import tkinter as tk
 
 r= sr.Recognizer()
 # Enter your API key for NewsAPI
@@ -13,6 +14,13 @@ def say(text):
     engine=pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
+
+def mike_GUI():
+    while True:
+        ww=tk.Tk()
+        ww.title("jarvis")
+        ww.
+        
 
 def processcommand(command):
     print(f"request went:{command}")
@@ -91,17 +99,18 @@ if __name__=="__main__":
                 lo=2
 
     while lo==2:
-        try:
+        # try:
             with sr.Microphone() as source2:
                 print("how can i help you?,")
                 print("listening...")
+                window=tk.Tk()
                 command_lis=r.listen(source2)
                 command_text=r.recognize_google(command_lis)
                 processcommand(command_text)
 
-        except Exception as e1:
-            print(e1)
-            print(f"sorry,could not get that")
+        # except Exception as e1:
+        #     print(e1)
+        #     print(f"sorry,could not get that")
 
                 
 
